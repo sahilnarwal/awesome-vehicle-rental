@@ -1,0 +1,65 @@
+@startuml
+
+class RentalLocation {
+String id;
+Address address;
+Coordinates coordinates;
+}
+
+RentalLocation *--Address
+RentalLocation *--Coordinates
+
+abstract class AddonService {
+-String id;
+-String name;
+-String description;
+-double cost;
+}
+
+Chauffeur <|-- AddonService
+DeepCleaning <|-- AddonService
+Insurance <|-- AddonService
+OnDemandTowing <|-- AddonService
+WiFi <|-- AddonService
+
+abstract class VehicleAddon {
+-String id;
+-String name;
+-String description;
+-double cost;
+}
+
+ChildSeat <|-- VehicleAddon
+Navigation <|-- VehicleAddon
+PassengerScreen <|-- VehicleAddon
+
+class VehicleReservation {
+-String reservationId;
+-String userId;
+-LocalDateTime reservationDate;
+-LocalDateTime fromDate;
+-LocalDateTime dueDate;
+-LocalDateTime returnDate;
+-Address pickupLocation;
+-Address dropLocation;
+-double startMeterReading;
+-double endMeterReading;
+- HireableVehicle vehicle;
+-String invoiceId;
+-List<VehicleAddon> vehicleAddons;
+-List<AddonService> addonServices;
+-VehicleReservationType vehicleReservationType;
+}
+
+VehicleReservation *-- VehicleAddon
+VehicleReservation *-- AddonService
+
+enum VehicleReservationType {
+    HOURLY
+    FOUR_HOURS
+    EIGHT_HOURS
+    DAY
+    MONTH
+}
+
+@enduml

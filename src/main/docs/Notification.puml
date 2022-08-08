@@ -1,0 +1,24 @@
+@startuml
+
+enum NotificationStatus {
+    SENT
+    PENDING
+    RETRIED
+    FAILED
+}
+
+class InvoiceNotification {
+-Invoice invoice;
+-LocalDateTime createdDate;
+-NotificationStatus notificationStatus;
+}
+
+class ReservationReminder {
+-LocalDateTime reservationDate;
+-String reservationId;
+-String userId;
+-LocalDateTime createdDate;
+-NotificationStatus notificationStatus;
+}
+
+@enduml

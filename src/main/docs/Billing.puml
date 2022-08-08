@@ -1,0 +1,14 @@
+@startuml
+
+class Invoice {
+-String invoiceId;
+-String reservationId;
+-String userId;
+-double usageCharges;
+-double addonCost;
+-double addonServicesCost;
+-double taxes;
+-double total;
+}
+
+@enduml
