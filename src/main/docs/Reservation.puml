@@ -42,6 +42,7 @@ class VehicleReservation {
 -LocalDateTime returnDate;
 -Address pickupLocation;
 -Address dropLocation;
+-ReservationStatus status;
 -double startMeterReading;
 -double endMeterReading;
 - HireableVehicle vehicle;
@@ -60,6 +61,14 @@ enum VehicleReservationType {
     EIGHT_HOURS
     DAY
     MONTH
+}
+
+enum ReservationStatus {
+    ACTIVE
+    PENDING
+    CONFIRMED
+    COMPLETED
+    CANCELLED
 }
 
 @enduml

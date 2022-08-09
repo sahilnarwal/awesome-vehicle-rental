@@ -1,0 +1,195 @@
+openapi: 3.0.3
+info:
+  title: User API
+  version: '1.0'
+  description: User Service API
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+    x-last-modified: 1659966918955
+  x-logo:
+    url: ''
+servers:
+  - url: https://awesome-mobility.com/api/v1/
+    description: Base path for awesome mobility rest end point
+    x-last-modified: 1659966821327
+paths:
+  /user:
+    post:
+      tags: []
+      requestBody:
+        description: '{email, username, accounttype, {contact}, {licenseInfo}}'
+        required: false
+        content: {}
+    x-last-modified: 1659966870071
+    parameters:
+      - name: user-id
+        in: path
+        required: true
+        deprecated: false
+        x-last-modified: 1659981116307
+  /booking:
+    summary: API for making bookings
+    post:
+      tags: []
+    x-last-modified: 1659980118914
+  /search:
+    summary: API for providing user with searching capabilities
+    post:
+      tags: []
+      requestBody:
+        required: false
+      parameters:
+        - name: vehicle-type
+          in: query
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          x-last-modified: 1659980928442
+        - name: geohash
+          in: query
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          x-last-modified: 1659980945166
+        - name: vehicle-category
+          in: query
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          x-last-modified: 1659980984035
+        - name: num_of_seats
+          in: query
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          x-last-modified: 1659981005452
+        - name: from-date
+          in: query
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          x-last-modified: 1660020540230
+        - name: to-date
+          in: query
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          x-last-modified: 1660020551387
+    x-last-modified: 1659980192545
+  /pricing:
+    summary: API to manage various pricing models for renting vehicles
+    get:
+      tags: []
+    post:
+      tags: []
+    delete:
+      tags: []
+    patch:
+      tags: []
+    x-last-modified: 1659980219807
+  /payment:
+    summary: API to provide payment facilities for users
+    get:
+      tags: []
+    post:
+      tags: []
+    x-last-modified: 1659980326152
+  /notification:
+    summary: API to manage outgoing notification
+    get:
+      tags: []
+    post:
+      tags: []
+    delete:
+      tags: []
+    x-last-modified: 1659980383083
+  /inventory:
+    summary: API for vehicle inventory management
+    post:
+      tags: []
+    x-last-modified: 1659980610660
+  /user/user-id:
+    delete:
+      tags: []
+    patch:
+      tags: []
+    x-last-modified: 1659981171210
+    get:
+      description: ''
+  /trip:
+    summary: API for trip management
+    post:
+      tags: []
+      requestBody:
+        description: '{}'
+        required: false
+        content: {}
+    x-last-modified: 1659981298096
+  /trip/trip-id:
+    get:
+      tags: []
+    delete:
+      tags: []
+    patch:
+      tags: []
+    x-last-modified: 1659981312805
+  /booking/booking-id:
+    get:
+      tags: []
+    delete:
+      tags: []
+    patch:
+      tags: []
+    x-last-modified: 1660020084917
+  /invoice:
+    summary: API for billing and invoicing services
+    post:
+      tags: []
+      requestBody:
+        description: |-
+          {
+
+          }
+        required: false
+        content: {}
+    x-last-modified: 1660020112887
+  /invoice/invoice-id:
+    get:
+      tags: []
+    x-last-modified: 1660020142834
+  /inventory/vehicle-id:
+    get:
+      tags: []
+    delete:
+      tags: []
+    patch:
+      tags: []
+    x-last-modified: 1660020234901
+  /user/user-id/bookings:
+    summary: API to fetch bookings specific to an user
+    x-last-modified: 1660028131335
+    get:
+      description: ''
+  /user/user-id/trips:
+    summary: API to fetch trips specific to an user
+    get:
+      tags: []
+    x-last-modified: 1660028169308
+components:
+  securitySchemes:
+    JWTAuth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: |-
+        Example: 
+        > Authorization: Bearer <token>
+      x-last-modified: 1659966904332
+  schemas: {}
+  headers: {}
+  responses: {}
+  parameters: {}
+security:
+  - JWTAuth: []
+tags: []
